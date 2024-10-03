@@ -8,8 +8,8 @@ NodeJS (https://nodejs.org/en/download/prebuilt-installer)
 
 ### Install Dependencies
 Run this command in your project directory
-`npm install`
+- `npm install`
 
 ### Build the Project
 Package the electron app. May require administrator permissions to allow for SymLinks
-`npm run dist`
+- `npm run dist`
