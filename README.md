@@ -1,5 +1,6 @@
 # salad-dashboard
-Chef Dashboard for Salad
+## Not in ANY way Affiliated with SaladTechnologies
+Chef Dashboard for Salad 
 
 ## Build Instructions:
 
