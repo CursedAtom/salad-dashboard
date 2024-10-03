@@ -21,13 +21,11 @@ function createPlot(id, title, xData, yData, tooltipData, type='bar') {
     Plotly.newPlot(id, data, layout);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("Requesting data from main process");
-    window.electron.requestData();
 
+document.addEventListener('DOMContentLoaded', () => {
+    window.electron.requestData();
     window.electron.receiveData('salad-data', (saladData) => {
-        console.log('Data received:', saladData);
-        
+
         // Wallet Balance Plot
         let walletData = saladData.filter(data => data.currentBalance !== undefined);
         let xValuesWallet = walletData.map((_, i) => i + 1);
@@ -46,9 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let bandwidthData = saladData.filter(data => data.BidirThroughput !== undefined);
         let xValuesBandwidth = bandwidthData.map((_, i) => i + 1);
         let bidirThroughput = bandwidthData.map(data => data.BidirThroughput);
-        let tooltipDataBandwidth = bandwidthData.map(data => `Timestamp: ${data.timestamp}<br>Throughput: ${data.BidirThroughput} MBps`);
+        let tooltipDataBandwidth = bandwidthData.map(data => `Timestamp: ${data.timestamp}<br>Throughput: ${data.BidirThroughput} MB/s`);
         createPlot('plot3', 'Bandwidth Sharing', xValuesBandwidth, bidirThroughput, tooltipDataBandwidth, 'scatter');
-
+    
         // Earning History Plot
         let earningsHistory = walletData.map((data, index) => {
             if (index === 0) return 0;

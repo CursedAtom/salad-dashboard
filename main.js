@@ -66,7 +66,7 @@ function createWindow() {
         while ((match = timedStatsRegex.exec(content)) !== null) {
             saladData.push({
                 timestamp: match[1],
-                BidirThroughput: parseFloat(match[2]) * (1 / 8 / 30)  // Convert from bits per 30s to MBps
+                BidirThroughput: (parseFloat(match[2]) / (250000*30))  // Convert from bits per 30s to MB/s
             });
         }
     }
@@ -87,10 +87,6 @@ function createWindow() {
     }
 
     readLogDir(logDir);
-
-    if (saladData.length > 100) {
-        saladData = saladData.slice(saladData.length - 100);
-    }
 
     console.log("Sending data to renderer:", saladData);
 
