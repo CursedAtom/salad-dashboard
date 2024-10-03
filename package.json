@@ -1,17 +1,36 @@
 {
   "name": "salad-data-visualizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A visualizer for Salad data using Electron and Plotly.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . SaladDataVisualizer --platform=win32 --arch=x64 --out=dist --overwrite"
+    "build": "electron-builder",
+    "dist": "electron-builder --win --x64"
   },
   "author": "CursedAtom",
   "license": "MIT",
   "dependencies": {
-    "electron": "^23.1.0",
-    "electron-packager": "^15.4.0",
     "plotly.js-dist": "^2.11.1"
+  },
+  "devDependencies": {
+    "electron-builder": "^22.14.13"
+  },
+  "build": {
+    "appId": "com.example.salad-data-visualizer",
+    "productName": "SaladDataVisualizer",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "ffmpeg.dll"
+    ],
+    "win": {
+      "target": "portable"
+    }
   }
 }
