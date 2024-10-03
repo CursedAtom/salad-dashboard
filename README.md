@@ -9,4 +9,4 @@ Chef Dashboard for Salad
 
 ### Build the Project
 - Package the electron app:
-`npm run build`
+`npm run dist`
