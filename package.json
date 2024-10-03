@@ -1,17 +1,17 @@
 {
-  "name": "saladlogvisual",
+  "name": "salad-data-visualizer",
   "version": "1.0.0",
-  "description": "Displays Salad Logs for easy reading.",
+  "description": "A visualizer for Salad data using Electron and Plotly.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron .",
+    "build": "electron-packager . SaladDataVisualizer --platform=win32 --arch=x64 --out=dist --overwrite"
   },
   "author": "CursedAtom",
-  "license": "ISC",
-  "devDependencies": {
-    "electron": "^32.1.2"
-  },
+  "license": "MIT",
   "dependencies": {
-    "fs": "^0.0.1-security"
+    "electron": "^23.1.0",
+    "electron-packager": "^15.4.0",
+    "plotly.js-dist": "^2.11.1"
   }
 }
